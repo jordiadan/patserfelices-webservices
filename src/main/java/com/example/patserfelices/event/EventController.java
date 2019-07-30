@@ -9,7 +9,7 @@ public class EventController {
     public EventController() {
     }
 
-    @GetMapping({"/events"})
+    @GetMapping("/events")
     public List<Event> getAllEvents() {
         return null;
     }

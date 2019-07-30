@@ -1,20 +1,30 @@
 package com.example.patserfelices.comment;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.math.BigInteger;
+
+@Entity
 public class Comment {
-    private Integer id;
+
+    @Id
+    @GeneratedValue
+    private Long id;
+    private Long postId;
     private String username;
     private String text;
-    private Integer createdAt;
-    private String profilePic;
+    private BigInteger createdAt;
+    private String profilePicture;
 
     public Comment() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -34,19 +44,27 @@ public class Comment {
         this.text = text;
     }
 
-    public Integer getCreatedAt() {
+    public BigInteger getCreatedAt() {
         return this.createdAt;
     }
 
-    public void setCreatedAt(Integer createdAt) {
+    public void setCreatedAt(BigInteger createdAt) {
         this.createdAt = createdAt;
     }
 
-    public String getProfilePic() {
-        return this.profilePic;
+    public String getProfilePicture() {
+        return this.profilePicture;
     }
 
-    public void setProfilePic(String profilePic) {
-        this.profilePic = profilePic;
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public Long getPostId() {
+        return postId;
+    }
+
+    public void setPostId(Long postId) {
+        this.postId = postId;
     }
 }

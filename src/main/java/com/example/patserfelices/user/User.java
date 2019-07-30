@@ -17,7 +17,9 @@ public class User {
     private String password;
     private String name;
     private String firstSurname;
+    private String secondSurname;
     private String profilePicture;
+    private String role;
 
     public User() {
     }
@@ -72,5 +74,21 @@ public class User {
 
     public void setFirstSurname(String firstSurname) {
         this.firstSurname = firstSurname;
+    }
+
+    public String getSecondSurname() {
+        return secondSurname;
+    }
+
+    public void setSecondSurname(String secondSurname) {
+        this.secondSurname = secondSurname;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

@@ -39,12 +39,12 @@ public class AuthController {
         this.userController.saveUser(user);
     }
 
-    @GetMapping({"/authenticate"})
+    @GetMapping("/authenticate")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void authenticate() {
     }
 
-    @PostMapping({"/login"})
+    @PostMapping("/login")
     public String logIn(@Valid @RequestBody User user, HttpServletResponse response) {
         System.out.println("Trying to log in...");
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());

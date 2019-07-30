@@ -1,13 +1,13 @@
 package com.example.patserfelices.posts;
 
 import com.example.patserfelices.comment.Comment;
+
 import java.math.BigInteger;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import java.util.Set;
+import javax.persistence.*;
 
 @Entity
 public class Post {
@@ -17,13 +17,15 @@ public class Post {
     )
     private Long id;
     private String username;
+    private String name;
+    private String firstSurname;
     private String profilePicture;
     private String description;
     private String photo;
     private BigInteger createdAt;
-    private Integer likes;
-    @Transient
-    private List<Comment> comments = null;
+    @ElementCollection
+    private Set<String> likes = new HashSet<String>();
+    private Long numberOfComments;
 
     public Post() {
     }
@@ -76,23 +78,41 @@ public class Post {
         this.createdAt = createdAt;
     }
 
-    public Integer getLikes() {
+    public Set<String> getLikes() {
         return this.likes;
     }
 
-    public void setLikes(Integer likes) {
+    public void setLikes(Set<String> likes) {
         this.likes = likes;
     }
 
-    public List<Comment> getComments() {
-        return this.comments;
-    }
 
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
 
     public String toString() {
-        return "Post{id=" + this.id + ", username='" + this.username + '\'' + ", profilePicture='" + this.profilePicture + '\'' + ", description='" + this.description + '\'' + ", photo='" + this.photo + '\'' + ", createdAt=" + this.createdAt + ", likes=" + this.likes + ", comments=" + this.comments + '}';
+        return "Post{id=" + this.id + ", username='" + this.username + '\'' + ", profilePicture='" + this.profilePicture + '\'' + ", description='" + this.description + '\'' + ", photo='" + this.photo + '\'' + ", createdAt=" + this.createdAt + ", likes=" + this.likes  + '}';
+    }
+
+    public Long getNumberOfComments() {
+        return numberOfComments;
+    }
+
+    public void setNumberOfComments(Long numberOfComments) {
+        this.numberOfComments = numberOfComments;
+    }
+
+    public String getFirstSurname() {
+        return firstSurname;
+    }
+
+    public void setFirstSurname(String firstSurname) {
+        this.firstSurname = firstSurname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
